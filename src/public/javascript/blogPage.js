@@ -21,15 +21,11 @@ $(document).ready(function () {
     },
     dataType: "JSON",
   }).done((data) => {
-    if (data.length > 1) {
-      if (data[0].status == "approved") {
-        $(".title").html(data[0].title);
-        $(".author").html(data[0].author);
-        $(".date").html(data[0].date);
-        $(".text").html(data[0].text);
-      } else {
-        location.replace("/");
-      }
+    if (data[0].status == "approved") {
+      $(".title").html(data[0].title);
+      $(".author").html(data[0].author);
+      $(".date").html(data[0].date);
+      $(".text").html(data[0].text);
     } else {
       location.replace("/");
     }
