@@ -23,6 +23,12 @@ class Blog
         $result = $this->db->resultSet();
         return json_encode($result);
     }
+    public function getUserBlog($user_id)
+    {
+        $this->db->query("SELECT * FROM `blogs` WHERE user_id='$user_id'");
+        $result = $this->db->resultSet();
+        return json_encode($result);
+    }
     public function addBlog($user_id, $title, $author, $text, $status)
     {
         $this->db->query("INSERT INTO `blogs`(`user_id`, `title`, `author`,`text`, `status`)

@@ -42,13 +42,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link users" href="#users">
+                            <a class="nav-link users" href="#users" style="display: none">
                                 <span data-feather="file"></span>
                                 User Management
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link blogs" href="#blogs">
+                            <a class="nav-link blogs" href="#blogs" style="display: none">
                                 <span data-feather="shopping-cart"></span>
                                 Blog Management
                             </a>
@@ -59,7 +59,7 @@
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="admin">
 
-                <section id='users'>
+                <section id='users' style="display: none">
                     <div id='users' class="my-5">
                         <div class="row">
                             <div class="col-8">
@@ -90,7 +90,7 @@
                         </div>
                 </section>
 
-                <section id='blogs'>
+                <section id='blogs' style="display: none">
                     <div id='blogs' class="my-5">
                         <div class="row">
                             <div class="col-8">

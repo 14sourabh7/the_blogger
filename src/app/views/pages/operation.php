@@ -38,6 +38,9 @@ if (isset($_POST)) {
         case 'getBlog':
             echo $blog->getBlog($_POST['blog_id']);
             break;
+        case 'getUserBlog':
+            echo $blog->getUserBlog($_POST['user_id']);
+            break;
         case 'addBlog':
             echo $blog->addBlog($_POST['user_id'], $_POST['title'], $_POST['author'], $_POST['text'], $_POST['status']);
             break;

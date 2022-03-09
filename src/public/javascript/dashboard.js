@@ -1,24 +1,6 @@
+var role = sessionStorage.getItem("role");
 $(document).ready(function () {
-  if (sessionStorage.getItem("login") == 1) {
-    $(".authButton").html("SignOut");
-    var role = sessionStorage.getItem("role");
-    if (role == "admin") {
-      //   $("#users").hide();
-      //   $(".users").hide();
-    } else {
-      $("#users").hide();
-      $(".users").hide();
-    }
-  } else {
-    $(".authButton").html("SignIn");
-  }
-
-  $(".authButton").click(function () {
-    if (sessionStorage.getItem("login") == 1) {
-      sessionStorage.removeItem("login");
-    }
-    location.replace("/pages/authentication");
-  });
+  checkLogin();
 
   // user management /////////////////////////////////////////////
 
@@ -186,31 +168,38 @@ $(document).ready(function () {
   getBlogs();
   // function to getBlogs from db
   function getBlogs() {
-    $.ajax({
-      url: "/pages/operation",
-      method: "post",
-      data: { action: "getBlogs" },
-      dataType: "JSON",
-    }).done((data) => {
-      console.log(data);
-      displayBlogs(data);
-    });
+    if (role == "user") {
+      var user_id = sessionStorage.getItem("user_id");
+      $.ajax({
+        url: "/pages/operation",
+        method: "post",
+        data: { action: "getUserBlog", user_id: user_id },
+        dataType: "JSON",
+      }).done((data) => {
+        console.log(data);
+        displayBlogs(data);
+      });
+    } else {
+      $.ajax({
+        url: "/pages/operation",
+        method: "post",
+        data: { action: "getBlogs" },
+        dataType: "JSON",
+      }).done((data) => {
+        console.log(data);
+        displayBlogs(data);
+      });
+    }
   }
 
   // function to display users
   function displayBlogs(data, limit = data.length) {
     var html = "";
-    console.log(data);
-
     if (data) {
       for (let i = 0; i < limit; i++) {
         var color =
           data[i].status == "approved" ? "text-success" : "text-danger";
-        var userColor =
-          data[i].role == "admin" ? "text-danger" : "text-success";
-
-        var changeBtn =
-          data[i].role == "admin" && data[i].user_id == "1" ? "disabled" : "";
+        var changeBtn = role == "user" && "disabled";
 
         html += `
           <tr>
@@ -383,3 +372,30 @@ $(document).ready(function () {
     }
   });
 });
+
+function giveAccess() {
+  if (role == "admin") {
+    $("#users").show();
+    $(".users").show();
+    $("#blogs").show();
+    $(".blogs").show();
+  } else {
+    $("#blogs").show();
+    $(".blogs").show();
+  }
+}
+
+function checkLogin() {
+  if (sessionStorage.getItem("login") == 1) {
+    $(".authButton").html("SignOut");
+  } else {
+    $(".authButton").html("SignIn");
+  }
+  $(".authButton").click(function () {
+    if (sessionStorage.getItem("login") == 1) {
+      sessionStorage.removeItem("login");
+    }
+    location.replace("/pages/authentication");
+  });
+  giveAccess();
+}
