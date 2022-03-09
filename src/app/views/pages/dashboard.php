@@ -22,39 +22,52 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <h2 class="text-white py-2">
-            Admin Dashboard
+            Dashboard
         </h2>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="#">Sign out</a>
+                <button class="btn text-white px-3 authButton" href="#">Sign out</button>
             </div>
         </div>
     </header>
     <div class="container-fluid">
-        <div class="row sticky-top p-3 text-center bg-white">
-            <div class="col">
-                <a class="btn btn-primary" href="#user">User Management</a>
-            </div>
-            <div class="col">
-                <a class="btn btn-danger" href="#blog">Blog Management</a>
-            </div>
+        <div class="row" id='admin'>
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active text-dark fw-bold" aria-current="page" href="#">
+                                <span data-feather="home"></span>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link users" href="#users">
+                                <span data-feather="file"></span>
+                                User Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link blogs" href="#blogs">
+                                <span data-feather="shopping-cart"></span>
+                                Blog Management
+                            </a>
+                        </li>
 
-        </div>
-        <div class="row">
-            <main class="col px-5">
-                <section id=user>
+                    </ul>
+                </div>
+            </nav>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="admin">
+
+                <section id='users'>
                     <div id='users' class="my-5">
                         <div class="row">
                             <div class="col-8">
                                 <h1>User Management</h1>
                             </div>
 
-                            <div class="col-8 mx-auto">
-                                <input id='searchInput' class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-                            </div>
                             <div class="col-4">
-                                <button class="btn btn-primary viewAll" data-list='users'>View All</button>
-                                <button class="btn btn-success addNewUser" data-list='users' data-bs-toggle="modal" data-bs-target="#addNewModal">Add New</button>
+                                <a href='/pages/addNewUser' class="btn btn-success addNewUser">Add New</a>
                             </div>
                         </div>
                         <div class="table-responsive mt-4">
@@ -62,68 +75,80 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">user_ID</th>
-                                        <th scope="col">user_name</th>
                                         <th scope="col">password</th>
                                         <th scope="col">name</th>
                                         <th scope="col">email</th>
                                         <th scope='col'>role</th>
-                                        <th scope='col'></th>
-                                        <th scope='col'></th>
+                                        <th scope='col'>Status</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody class='userData'>
-
                                 </tbody>
                             </table>
+
                         </div>
-                    </div>
                 </section>
-                <hr>
-                <section id=blog>
-                    <div id='products' class="my-5">
+
+                <section id='blogs'>
+                    <div id='blogs' class="my-5">
                         <div class="row">
                             <div class="col-8">
                                 <h1>Blog Management</h1>
                             </div>
 
-                            <div class="col-8 mx-auto">
-                                <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-                            </div>
                             <div class="col-4">
-                                <button class="btn btn-primary viewAll" data-list='products'>View All</button>
-                                <button class="btn btn-success addNewProduct" data-list='products' data-bs-toggle="modal" data-bs-target="#addNewModal">Add New</button>
+                                <button class="btn btn-danger writeBlog" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class='fa-solid fa-edit'></i>
+                                    Write Blog</button>
                             </div>
                         </div>
                         <div class="table-responsive mt-4">
-                            <table class="table table-striped table-sm">
+                            <table class="table table-striped table-sm" id='blogTable'>
                                 <thead>
                                     <tr>
-                                        <th scope="col">SKU No.</th>
-                                        <th scope="col">name</th>
-                                        <th scope="col">brand</th>
-                                        <th scope="col">type</th>
-                                        <th scope="col">price</th>
-                                        <th scope='col'>discount</th>
-                                        <th scope='col'>sell price</th>
-                                        <th scope='col'></th>
-                                        <th scope='col'></th>
+                                        <th scope="col">blog_ID</th>
+                                        <th scope="col">user_ID</th>
+                                        <th scope="col">title</th>
+                                        <th scope="col">author</th>
+                                        <th scope="col">date</th>
+                                        <th scope='col'>Status</th>
+                                        <th scope="col"></th>
                                     </tr>
                                 </thead>
-                                <tbody class='productData'>
-
+                                <tbody class='blogData'>
                                 </tbody>
                             </table>
+
+                        </div>
+                </section>
+                <div class=" modal fade" id="exampleModal" tabindex="-1" aria-labelledby="blogModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Write your blog</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class='blogTitle mb-3' placeholder="blog title">
+                                <p class="blogTitleError text-danger"></p>
+                                <textarea name="blog" class='blogText' placeholder="write your blog here" cols="40" rows="10"></textarea>
+                                <p class="blogTextError text-danger"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">cancel</button>
+                                <button type="button" class="btn btn-success blogPost">post</button>
+                                <button type="button" class="btn btn-success blogUpdate" style="display:none">update</button>
+                                <a data-id='' class='bID'></a>
+                            </div>
                         </div>
                     </div>
-                </section>
-
-
+                </div>
             </main>
-        </div>
-    </div>
-    <?php include '../app/views/components/footer.php'; ?>
+
+            <?php include '../app/views/components/footer.php'; ?>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src='../scripts/dashboard.js'></script>
+<script src="../public/javascript/dashboard.js"></script>
 
 </html>

@@ -21,10 +21,10 @@ class ComposerStaticInit6b2cd9154f905f3dbc019bff3c7a9ef5
     );
 
     public static $classMap = array (
+        'App\\Blog' => __DIR__ . '/../..' . '/app/models/Blog.php',
         'App\\Controller' => __DIR__ . '/../..' . '/app/libraries/Controller.php',
         'App\\Core' => __DIR__ . '/../..' . '/app/libraries/Core.php',
         'App\\Database' => __DIR__ . '/../..' . '/app/libraries/Database.php',
-        'App\\Pages' => __DIR__ . '/../..' . '/app/controllers/Pages.php',
         'App\\User' => __DIR__ . '/../..' . '/app/models/User.php',
     );
 

@@ -23,6 +23,7 @@ $(document).ready(function () {
             sessionStorage.setItem("user_id", data[0].user_id);
             sessionStorage.setItem("name", data[0].name);
             sessionStorage.setItem("email", data[0].email);
+            sessionStorage.setItem("role", data[0].role);
             sessionStorage.setItem("login", 1);
             location.replace("/");
           } else {

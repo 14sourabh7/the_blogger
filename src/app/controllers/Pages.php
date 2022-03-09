@@ -33,6 +33,10 @@ class Pages extends Controller
     {
         $this->view('/pages/signup');
     }
+    public function addNewUser()
+    {
+        $this->view('/pages/addNewUser');
+    }
     public function operation()
     {
         $this->view('/pages/operation');

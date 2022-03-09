@@ -75,10 +75,10 @@ class Database
         return $this->statement->fetch(PDO::FETCH_OBJ);
     }
 
-    public function addUser()
+    public function execQuery()
     {
         $this->execute();
-        return 'added';
+        return 'executed';
     }
     //Get's the row count
     public function rowCount()
