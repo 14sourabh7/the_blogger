@@ -38,9 +38,7 @@
             <div class="col">
                 <a class="btn btn-danger" href="#blog">Blog Management</a>
             </div>
-            <div class="col">
-                <a class="btn btn-success" href="#query">Query Management</a>
-            </div>
+
         </div>
         <div class="row">
             <main class="col px-5">
@@ -50,10 +48,7 @@
                             <div class="col-8">
                                 <h1>User Management</h1>
                             </div>
-                            <div class="col-4 ">
-                                <button class="btn border">share</button>
-                                <button class="btn border">export</button>
-                            </div>
+
                             <div class="col-8 mx-auto">
                                 <input id='searchInput' class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
                             </div>
@@ -90,10 +85,7 @@
                             <div class="col-8">
                                 <h1>Blog Management</h1>
                             </div>
-                            <div class="col-4 ">
-                                <button class="btn border">share</button>
-                                <button class="btn border">export</button>
-                            </div>
+
                             <div class="col-8 mx-auto">
                                 <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
                             </div>
@@ -124,56 +116,12 @@
                         </div>
                     </div>
                 </section>
-                <hr>
-
-                <section id=queryr>
-                    <div id='orders' class="my-5">
-                        <div class="row">
-                            <div class="col-8">
-                                <h1>Query Management</h1>
-                            </div>
-                            <div class="col-4 ">
-                                <button class="btn border">share</button>
-                                <button class="btn border">export</button>
-                            </div>
-                            <div class="col-8 mx-auto">
-                                <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-                            </div>
-                            <div class="col-4">
-                                <button class="btn btn-primary viewAll" data-list='orders'>View All</button>
-                                <!-- <button class="btn btn-success" data-list='products'>Add New</button> -->
-                            </div>
-                        </div>
-                        <div class="table-responsive mt-4">
-                            <table class="table table-striped table-sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">order_id</th>
-                                        <th scope="col">user_id</th>
-                                        <th scope="col">user_email</th>
-                                        <th scope="col">quantity</th>
-                                        <th scope="col">total</th>
-                                        <th scope='col'>Status</th>
-                                        <th scope='col'></th>
-                                    </tr>
-                                </thead>
-                                <tbody class='orderData'>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
 
 
-                <?php
-                include '../components/editModal.php';
-                include '../components/addNewModal.php';
-                ?>
             </main>
         </div>
     </div>
-    <?php include '../components/footer.php'; ?>
+    <?php include '../app/views/components/footer.php'; ?>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src='../scripts/dashboard.js'></script>

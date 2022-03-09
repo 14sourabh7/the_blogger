@@ -12,34 +12,34 @@
 
 <body>
     <?php
-    include '../components/navbar.php';
+    include '../app/views/components/navbar.php';
     ?>
 
     <main class="form-signin">
-        <form style="width: 50%;" class="mx-auto mt-5">
+        <form method="post" action="operation" style="width: 50%;" class="mx-auto mt-5">
 
             <h1 class="h3 mt-3 fw-normal text-center">Please sign in</h1>
 
             <div class="form-floating mt-3 w-75 mx-auto">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input type="email" class="form-control email" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating mt-5 w-75 mx-auto">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" class="form-control password" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
-
+            <p id='error' class='text-danger'></p>
             <br>
-            <a href='/' class="w-100   btn btn-lg btn-danger" type="submit">Sign in</a>
-
+            <a class="w-100 btn btn-lg btn-danger signin" type="submit">Sign in</a>
+            <a href="/pages/signup">Not a User? Sign Up</a>
         </form>
     </main>
 
     <?php
-    include '../components/footer.php';
+    include '../app/views/components/footer.php';
     ?>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src='../scripts/dashboard.js'></script>
+<script src="../public/javascript/authentication.js"></script>
 
 </html>

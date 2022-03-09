@@ -2,7 +2,7 @@
      <div class="col">
          <div class="row">
              <div class="col">
-                 <img src="../banner.png" style='height:200px' class="card-img-top w-100 " alt="" />
+                 <img src="../public/img/banner.png" style='height:200px' class="card-img-top w-100 " alt="" />
              </div>
              <div class="col-4">
                  <h1 class="mt-4">title</h1>

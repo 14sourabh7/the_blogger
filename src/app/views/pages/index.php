@@ -13,12 +13,12 @@
 
 <body>
     <?php
-    include '../components/navbar.php';
-    include '../components/single.php';
-    include '../components/footer.php';
+    include '../app/views/components/navbar.php';
+    include '../app/views/pages/blog.php';
+    include '../app/views/components/footer.php';
     ?>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src='./scripts/product.js'></script>
+<script src="../public/javascript/index.js"></script>
 
 </html>
