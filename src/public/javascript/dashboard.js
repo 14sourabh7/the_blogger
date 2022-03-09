@@ -192,7 +192,7 @@ $(document).ready(function () {
     }
   }
 
-  // function to display users
+  // function to display Blogs
   function displayBlogs(data, limit = data.length) {
     var html = "";
     if (data) {
@@ -373,6 +373,7 @@ $(document).ready(function () {
   });
 });
 
+// function to giveAccess
 function giveAccess() {
   if (role == "admin") {
     $("#users").show();
@@ -385,6 +386,7 @@ function giveAccess() {
   }
 }
 
+// function to check login status
 function checkLogin() {
   if (sessionStorage.getItem("login") == 1) {
     $(".authButton").html("SignOut");
