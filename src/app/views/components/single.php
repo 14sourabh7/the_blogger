@@ -1,50 +1,29 @@
- <div class="row mt-2 mx-2">
-     <div class="col">
+ <div class="row mt-2 mx-2 bg-light">
+     <div class="col-12">
+         <h1 class="my-3 text-center title">title</h1>
          <div class="row">
-             <div class="col">
-                 <img src="../public/img/banner.png" style='height:200px' class="card-img-top w-100 " alt="" />
-             </div>
-             <div class="col-4">
-                 <h1 class="mt-4">title</h1>
-                 <p>author</p>
-                 <p>date</p>
+             <div class="col-7 mx-auto">
+                 <img src="../public/img/banner.png" class="card-img-top w-100 " alt="" />
              </div>
          </div>
      </div>
+     <div class="col-7 mx-auto mt-3">
+         <div class="row text-muted text-center">
+             <div class="col "><strong>By - </strong><span class='author'>author</span></div>
+             <div class="col"><strong> - </strong><span class='date'>date</span></div>
+             <div class="col"><a href="/"><i class="fa fa-chevron-left"></i>Back to Home</a></div>
+         </div>
+     </div>
+     <div class="col-9 mx-auto mt-3">
+         <div class="row text-center">
+             <div class="col">
+                 <p class="text fs-4"></p>
+             </div>
+         </div>
+     </div>
+ </div>
+ <p class="mt-4 blogBody"></p>
 
-
-     <p class="mt-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-         Dignissimos tempore, maiores unde mollitia reiciendis aliqu
-         id, impedit voluptatem sapiente dolorum tenetur sed pariat
-         ur porro explicabo
-         ! Laboriosam eligendi impedit eos quis voluptates.</p>
-
-     <p class="mt-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-         Dignissimos tempore, maiores unde mollitia reiciendis aliqu
-         id, impedit voluptatem sapiente dolorum tenetur sed pariat
-         ur porro explicabo
-         ! Laboriosam eligendi impedit eos quis voluptates.</p>
-
-     <p class="mt-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-         Dignissimos tempore, maiores unde mollitia reiciendis aliqu
-         id, impedit voluptatem sapiente dolorum tenetur sed pariat
-         ur porro explicabo
-         ! Laboriosam eligendi impedit eos quis voluptates.</p>
-
-     <p class="mt-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-         Dignissimos tempore, maiores unde mollitia reiciendis aliqu
-         id, impedit voluptatem sapiente dolorum tenetur sed pariat
-         ur porro explicabo
-         ! Laboriosam eligendi impedit eos quis voluptates.</p>
-
-     <p class="mt-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-         Dignissimos tempore, maiores unde mollitia reiciendis aliqu
-         id, impedit voluptatem sapiente dolorum tenetur sed pariat
-         ur porro explicabo
-         ! Laboriosam eligendi impedit eos quis voluptates.</p>
-     <a href="/" class="btn btn-danger">
-         Go To Main
-     </a>
 
 
 

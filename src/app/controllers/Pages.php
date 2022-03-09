@@ -21,9 +21,9 @@ class Pages extends Controller
     {
         $this->view('/pages/authentication');
     }
-    public function singleBlog()
+    public function viewBlog()
     {
-        $this->view('/pages/singleBlog');
+        $this->view('/pages/viewBlog');
     }
     public function dashboard()
     {
