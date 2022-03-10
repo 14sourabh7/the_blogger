@@ -44,7 +44,7 @@ class Blog
     }
     public function updateBlog($title, $text, $blog_id)
     {
-        $this->db->query("UPDATE `blogs` SET `title`='$title', `text`='$text' WHERE `blog_id`='$blog_id'");
+        $this->db->query("UPDATE `blogs` SET `title`='$title', `text`='$text' WHERE `blog_id`=$blog_id");
         $result = $this->db->execQuery();
         return json_encode(array('blog updated'));
     }

@@ -47,7 +47,7 @@ function displayBlogs(data) {
                  <p>${
                    data[i].text.length > 100
                      ? data[i].text.slice(0, 100) +
-                       " <a href='/pages/viewBlog?id=${data[i].blog_id}'>Read More</a>"
+                       `<a href='/pages/viewBlog?id=${data[i].blog_id}'>Read More</a>`
                      : data[i].text
                  } </p>
                  <a href="/pages/viewBlog?id=${
