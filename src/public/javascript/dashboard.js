@@ -396,7 +396,7 @@ $(document).ready(function () {
   // function to list no of pages in both tables
   function makePages(pages, list, filter) {
     let i = 1;
-    html = `<li class="page-item"><button class="btn nav-link prev page${filter}" href="#" data-page="1">Start</button></li>`;
+    html = `<li class="page-item"><button class="btn nav-link prev${filter} page${filter}" href="#" data-page="1">Start</button></li>`;
 
     for (i; i <= pages; i++) {
       html += `
@@ -404,9 +404,9 @@ $(document).ready(function () {
         `;
     }
 
-    html += `<li class="page-item"><button class="btn nav-link next page${filter}" data-page="${
+    html += `<li class="page-item"><button class="btn nav-link next${filter} page${filter}" data-page="${
       i - 1
-    }" data-endpage="${i - 1}" href="#">End</button></li>`;
+    }" data-endpage="${i}" href="#">End</button></li>`;
     $(`.${list}`).html(html);
   }
 
@@ -414,15 +414,15 @@ $(document).ready(function () {
   $("body").on("click", ".pageUser", function () {
     var currentPage = $(this).data("page");
     if (currentPage == "1") {
-      $(".prev").attr("disabled", true);
+      $(".prevUser").attr("disabled", true);
     } else {
       console.log("here");
-      $(".prev").attr("disabled", false);
+      $(".prevUser").attr("disabled", false);
     }
-    if (currentPage == $(".next").data("endPage")) {
-      $(".next").attr("disabled", true);
+    if (currentPage == $(".nextUser").data("endpage") - 1) {
+      $(".nextUser").attr("disabled", true);
     } else {
-      $(".next").attr("disabled", false);
+      $(".nextUser").attr("disabled", false);
     }
 
     paginationUser(users, currentPage);
@@ -441,15 +441,15 @@ $(document).ready(function () {
   $("body").on("click", ".pageBlog", function () {
     var currentPage = $(this).data("page");
     if (currentPage == "1") {
-      $(".prev").attr("disabled", true);
+      $(".prevBlog").attr("disabled", true);
     } else {
-      console.log("here");
-      $(".prev").attr("disabled", false);
+      $(".prevBlog").attr("disabled", false);
     }
-    if (currentPage == $(".next").data("endPage")) {
-      $(".next").attr("disabled", true);
+    console.log($(".nextBlog").data("endPage"));
+    if (currentPage == $(".nextBlog").data("endpage") - 1) {
+      $(".nextBlog").attr("disabled", true);
     } else {
-      $(".next").attr("disabled", false);
+      $(".nextBlog").attr("disabled", false);
     }
     paginationBlog(blogs, currentPage);
   });
