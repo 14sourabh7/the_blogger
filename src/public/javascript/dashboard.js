@@ -1,4 +1,6 @@
 var role = sessionStorage.getItem("role");
+var users = [];
+var blogs = [];
 $(document).ready(function () {
   checkLogin();
 
@@ -74,7 +76,9 @@ $(document).ready(function () {
       dataType: "JSON",
     }).done((data) => {
       console.log(data);
-      displayUsers(data);
+      users = data;
+      makePages(Math.ceil(data.length / 5), "paginationUser", "User");
+      paginationUser(data, 1);
     });
   }
 
@@ -176,8 +180,9 @@ $(document).ready(function () {
         data: { action: "getUserBlog", user_id: user_id },
         dataType: "JSON",
       }).done((data) => {
-        console.log(data);
-        displayBlogs(data);
+        blogs = data;
+        makePages(Math.ceil(data.length / 5), "paginationBlog", "Blog");
+        paginationBlog(data, 1);
       });
     } else {
       $.ajax({
@@ -186,8 +191,9 @@ $(document).ready(function () {
         data: { action: "getBlogs" },
         dataType: "JSON",
       }).done((data) => {
-        console.log(data);
-        displayBlogs(data);
+        blogs = data;
+        makePages(Math.ceil(data.length / 5), "paginationBlog", "Blog");
+        paginationBlog(data, 1);
       });
     }
   }
@@ -370,6 +376,70 @@ $(document).ready(function () {
         $(".blogTextError").html("*Blog can't be empty");
       }
     }
+  });
+
+  function paginationUser(array, pageNumber = 1, pageSize = 5) {
+    var arrayT = array.slice(
+      (pageNumber - 1) * pageSize,
+      pageNumber * pageSize
+    );
+    displayUsers(arrayT);
+  }
+
+  function makePages(pages, list, filter) {
+    let i = 1;
+    html = `<li class="page-item"><button class="btn nav-link prev page${filter}" href="#" data-page="1">Start</button></li>`;
+
+    for (i; i <= pages; i++) {
+      html += `
+        <li class="page-item"><button class="btn nav-link page${filter}" data-page="${i}" href="#">${i}</button></li>
+        `;
+    }
+
+    html += `<li class="page-item"><button class="btn nav-link next page${filter}" data-page="${
+      i - 1
+    }" data-endpage="${i - 1}" href="#">End</button></li>`;
+    $(`.${list}`).html(html);
+  }
+
+  $("body").on("click", ".pageUser", function () {
+    var currentPage = $(this).data("page");
+    if (currentPage == "1") {
+      $(".prev").attr("disabled", true);
+    } else {
+      console.log("here");
+      $(".prev").attr("disabled", false);
+    }
+    if (currentPage == $(".next").data("endPage")) {
+      $(".next").attr("disabled", true);
+    } else {
+      $(".next").attr("disabled", false);
+    }
+
+    paginationUser(users, currentPage);
+  });
+
+  function paginationBlog(array, pageNumber = 1, pageSize = 5) {
+    var arrayT = array.slice(
+      (pageNumber - 1) * pageSize,
+      pageNumber * pageSize
+    );
+    displayBlogs(arrayT);
+  }
+  $("body").on("click", ".pageBlog", function () {
+    var currentPage = $(this).data("page");
+    if (currentPage == "1") {
+      $(".prev").attr("disabled", true);
+    } else {
+      console.log("here");
+      $(".prev").attr("disabled", false);
+    }
+    if (currentPage == $(".next").data("endPage")) {
+      $(".next").attr("disabled", true);
+    } else {
+      $(".next").attr("disabled", false);
+    }
+    paginationBlog(blogs, currentPage);
   });
 });
 

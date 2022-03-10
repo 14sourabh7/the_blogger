@@ -88,6 +88,11 @@
                             </table>
 
                         </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination paginationUser">
+
+                            </ul>
+                        </nav>
                 </section>
 
                 <section id='blogs' style="display: none">
@@ -121,6 +126,11 @@
                             </table>
 
                         </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination paginationBlog">
+
+                            </ul>
+                        </nav>
                 </section>
                 <div class=" modal fade" id="exampleModal" tabindex="-1" aria-labelledby="blogModal" aria-hidden="true">
                     <div class="modal-dialog">
