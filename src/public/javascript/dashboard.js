@@ -8,6 +8,7 @@ $(document).ready(function () {
 
   getUsers();
 
+  // event listener for add New button
   $(".addNew").click(function (e) {
     e.preventDefault();
     // variables
@@ -67,6 +68,7 @@ $(document).ready(function () {
       $("#errorMsg").html("Please fill all details");
     }
   });
+
   // function to getUsers from db
   function getUsers() {
     $.ajax({
@@ -235,12 +237,14 @@ $(document).ready(function () {
     $(".blogData").html(html);
   }
 
+  // writeblog button listener
   $(".writeBlog").click(function () {
     console.log("clicked");
     $(".blogTitle").val("");
     $(".blogText").val("");
   });
 
+  // button listener to add blog
   $(".blogPost").click(function () {
     var title = $(".blogTitle").val();
     var text = $(".blogText").val();
@@ -321,6 +325,7 @@ $(document).ready(function () {
     }
   });
 
+  // event listener for view button in blog table
   $("body").on("click", "#viewBlog", function () {
     var blog_id = $(this).data("id");
     console.log(blog_id);
@@ -342,6 +347,7 @@ $(document).ready(function () {
     });
   });
 
+  // event listener for update blog button
   $(".blogUpdate").click(function () {
     var title = $(".blogTitle").val();
     var text = $(".blogText").val();
@@ -378,6 +384,7 @@ $(document).ready(function () {
     }
   });
 
+  // function to handle pagination on users table
   function paginationUser(array, pageNumber = 1, pageSize = 5) {
     var arrayT = array.slice(
       (pageNumber - 1) * pageSize,
@@ -386,6 +393,7 @@ $(document).ready(function () {
     displayUsers(arrayT);
   }
 
+  // function to list no of pages in both tables
   function makePages(pages, list, filter) {
     let i = 1;
     html = `<li class="page-item"><button class="btn nav-link prev page${filter}" href="#" data-page="1">Start</button></li>`;
@@ -402,6 +410,7 @@ $(document).ready(function () {
     $(`.${list}`).html(html);
   }
 
+  // event listener to handle page change in user table
   $("body").on("click", ".pageUser", function () {
     var currentPage = $(this).data("page");
     if (currentPage == "1") {
@@ -419,6 +428,7 @@ $(document).ready(function () {
     paginationUser(users, currentPage);
   });
 
+  // function to handle  pagination in blog table
   function paginationBlog(array, pageNumber = 1, pageSize = 5) {
     var arrayT = array.slice(
       (pageNumber - 1) * pageSize,
@@ -426,6 +436,8 @@ $(document).ready(function () {
     );
     displayBlogs(arrayT);
   }
+
+  // event listener for page change in blog table
   $("body").on("click", ".pageBlog", function () {
     var currentPage = $(this).data("page");
     if (currentPage == "1") {
@@ -443,6 +455,7 @@ $(document).ready(function () {
   });
 });
 
+// function to handle user permissions
 function giveAccess() {
   if (role == "admin") {
     $("#users").show();
@@ -455,6 +468,7 @@ function giveAccess() {
   }
 }
 
+// function to check user login
 function checkLogin() {
   if (sessionStorage.getItem("login") || sessionStorage.getItem("login") == 1) {
     if (sessionStorage.getItem("login") == 1) {
