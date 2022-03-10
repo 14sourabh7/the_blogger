@@ -388,16 +388,21 @@ function giveAccess() {
 
 // function to check login status
 function checkLogin() {
-  if (sessionStorage.getItem("login") == 1) {
-    $(".authButton").html("SignOut");
-  } else {
-    $(".authButton").html("SignIn");
-  }
-  $(".authButton").click(function () {
+  if (sessionStorage.getItem("login") || sessionStorage.getItem("login") == 1) {
     if (sessionStorage.getItem("login") == 1) {
-      sessionStorage.removeItem("login");
+      $(".authButton").html("SignOut");
+    } else {
+      $(".authButton").html("SignIn");
     }
+
+    $(".authButton").click(function () {
+      if (sessionStorage.getItem("login") == 1) {
+        sessionStorage.removeItem("login");
+      }
+      location.replace("/pages/authentication");
+    });
+    giveAccess();
+  } else {
     location.replace("/pages/authentication");
-  });
-  giveAccess();
+  }
 }
