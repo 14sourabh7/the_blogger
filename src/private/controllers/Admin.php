@@ -8,10 +8,6 @@ class Admin extends Controller
 {
     public function index()
     {
-        echo 'in Admin';
-    }
-    public function sH()
-    {
-        echo 'hello';
+        $this->view('/pages/dashboard');
     }
 }

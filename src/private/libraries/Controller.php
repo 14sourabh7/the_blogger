@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Libraries;
 
 class Controller
@@ -8,11 +9,11 @@ class Controller
     {
         require_once APPPATH . '/../vendor/php-activerecord/php-activerecord/ActiveRecord.php';
 
-        \ActiveRecord\Config::initialize(function ($cfg)
-        {
+        \ActiveRecord\Config::initialize(function ($cfg) {
             $cfg->set_model_directory(APPPATH . '/../private/models');
             $cfg->set_connections(array(
-                'development' => 'mysql://root:secret@mysql-server/store'));
+                'development' => 'mysql://root:secret@mysql-server/blogger'
+            ));
         });
 
         /* require_once 'Log.php';
@@ -23,7 +24,7 @@ class Controller
 
         require_once(APPPATH . '/../private/models/' . $model . '.php');
 
-        $model = '\\App\\Models\\'. $model;
+        $model = '\\App\\Models\\' . $model;
         return new $model;
     }
 
